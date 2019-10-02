@@ -8,6 +8,8 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
+    "formik": "^1.5.8",
     "gatsby": "^2.15.28",
     "gatsby-image": "^2.2.23",
     "gatsby-plugin-feed": "^2.3.15",
@@ -25,6 +27,7 @@
     "gatsby-source-filesystem": "^2.1.28",
     "gatsby-transformer-remark": "^2.6.26",
     "gatsby-transformer-sharp": "^2.2.19",
+    "jquery": "^3.4.1",
     "prismjs": "^1.17.1",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
