@@ -4,8 +4,6 @@ import { Formik, Form } from 'formik';
 
 
 //import '../assets/javascript/jquery.min.js';
-import {jquery as jQuery} from 'jquery';
-
 
 //CSS
 import '../assets/css/bootstrap.css';
@@ -21,11 +19,8 @@ import '../assets/css/responsive.css'
 import '../assets/css/shortcodes.css'
 import '../assets/css/themify-icons.css'
 
-import logo from './13.png';
 import Header from "./core/header";
 import Footer from "./core/footer";
-import { isValid } from "ipaddr.js";
-
 
 //JS
 
@@ -180,8 +175,7 @@ class BlogIndex extends React.Component {
                                                 handleChange,
                                                 handleBlur,
                                                 handleSubmit,
-                                                isValid,
-                                                isSubmitting
+                                                isValid
                                             }) => (
                                                 <Form onSubmit={handleSubmit} className="apply-now">
                                                     <div className="form-sent">
@@ -533,8 +527,7 @@ class BlogIndex extends React.Component {
                                 handleChange,
                                 handleBlur,
                                 handleSubmit,
-                                isValid,
-                                isSubmitting
+                                isValid
                             }) => (
                                 <Form onSubmit={() => handleSubmit(handleClick)} className="apply-now">
                                     <ul>
