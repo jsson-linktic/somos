@@ -523,7 +523,7 @@ class Home extends Component {
                                                             type='button'
                                                             className="btn bg-clff5f60"
                                                             onClick={() => handleClick(values, 1)}>
-                                                            Apply now
+                                                            Enviar
                                                         </button>
                                                     </div>
                                                 </Form>

@@ -6,7 +6,7 @@ const schema = Yup.object().shape({
         .required("Este campo es requerido."),
     email: Yup
         .string()
-        .email()
+        .email("Debe ser un correo electrónico")
         .required("Este campo es requerido."),
     phone: Yup
         .string()

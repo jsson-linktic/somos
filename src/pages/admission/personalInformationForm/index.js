@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import { Formik, Form } from 'formik';
-import Select from 'react-select'
-import DatePicker from "react-datepicker/es/";
+import axios from 'axios';
+//import DatePicker from "react-datepicker/es/";
 import "react-datepicker/dist/react-datepicker.css";
+import schema from './schema';
+import { FormikReactSelect } from '../../../components/FormikFields';
+const url_dev = 'http://172.21.20.214:3000/api/personalInfo';
 
 class PersonalInformation extends Component {
     constructor(props) {
@@ -21,37 +24,86 @@ class PersonalInformation extends Component {
 
     render() {
 
+        const gennders = [
+            { value: 'Hombre', label: 'Hombre' },
+            { value: 'Mujer', label: 'Mujer' }
+        ]
+
         const options = [
             { value: 'chocolate', label: 'Chocolate' },
             { value: 'strawberry', label: 'Strawberry' },
             { value: 'vanilla', label: 'Vanilla' }
-          ]
+        ]
+
+        const civilStatus = [
+            { value: 'Solter@', label: 'Solter@' },
+            { value: 'Casad@', label: 'Casad@' },
+        ]
+
+        const countries = [
+            { value: 'Colombia', label: 'Colombia' }
+        ]
+
+        const departaments = [
+            { value: 'Cundinamarca', label: 'Cundinamarca' }
+        ]
+
+        const cities = [
+            { value: 'Bogotá', label: 'Bogotá' }
+        ]
+
+        const typeDocuments = [
+            { value: 'Cedula de ciudadania', label: 'Cedula de ciudadania' }
+        ]
+
+        const professions = [
+            { value: 'Desarrollador', label: 'Desarrollador' }
+        ]
           
 
         const handleClick = values =>{
+            const data = {
+                ...values,
+                city: values.city.value,
+                civilStatus: values.civilStatus.value,
+                country: values.country.value,
+                department: values.department.value,
+                profession: values.profession.value,
+                sex: values.sex.value,
+                typeDocument: values.typeDocument.value,
+            }
             console.log(values)
+            console.log(JSON.stringify(data));
+
+            axios.post(`${url_dev}`, { ...data })
+                .then(res => {
+                    console.log(res);
+                    console.log(res.data);
+                })
+        }
+
+        const initialValues = {
+            firstName: '',
+            secondName: '',
+            lastName: '',
+            secondLastName: '',
+            sex: '',
+            civilStatus: '',
+            birthDate: '',
+            country: '',
+            department: '',
+            city: '',
+            typeDocument: '',
+            documentNumber: '',
+            expeditionDate: '',
+            profession: ''
         }
 
         return (
             <Formik
                 enableReinitialize={true}
-                initialValues={
-                    {
-                        email: this.state.email
-                    }
-                }
-                validate={values => {
-                    let errors = {};
-                    if (!values.email) {
-                        errors.email = 'Required';
-                    } else if (
-                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                    )
-                    {
-                        errors.email = 'Invalid email address';
-                    }
-                    return errors;
-                }}
+                initialValues={initialValues}
+                validationSchema={schema}
                 onSubmit={ (values) => {
                     handleClick(values)
                 }}>
@@ -62,7 +114,9 @@ class PersonalInformation extends Component {
                         handleChange,
                         handleBlur,
                         handleSubmit,
-                        isValid
+                        isValid,
+                        setFieldValue,
+                        setFieldTouched
                     }) => (
                         <Form onSubmit={handleSubmit} className="apply-now">
                             <div className="row">
@@ -121,41 +175,48 @@ class PersonalInformation extends Component {
                                 <div className="form-group col-md-6">
                                     <label>Segundo apellido</label>
                                     <input
-                                        id="secFirstName"
+                                        id="secondLastName"
                                         className="form-control"
                                         autoComplete="off"
                                         type="text"
-                                        name="secFirstName"
+                                        name="secondLastName"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={values.secFirstName}
+                                        value={values.secondLastName}
                                         aria-describedby="emailHelp" placeholder="Primer nombre"/>
-                                    {errors.secFirstName && touched.secFirstName && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.secFirstName}</small>
+                                    {errors.secondLastName && touched.secondLastName && (
+                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.secondLastName}</small>
                                     )}
                                 </div>
 
 
                                 <div className="form-group col-md-6">
                                     <label>Sexo</label>
-                                    <Select
-                                        id="gender"
-                                        name="gender"
-                                        className="react-select gender"
-                                        classNamePrefix="react-select"
-                                        options={options}/>
-                                    {errors.gender && touched.gender && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.gender}</small>
+                                    <FormikReactSelect
+                                        name="sex"
+                                        id="sex"
+                                        value={values.sex}
+                                        isMulti={false}
+                                        options={gennders}
+                                        onChange={setFieldValue}
+                                        onBlur={setFieldTouched}
+                                    />
+                                    {errors.sex && touched.sex && (
+                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.sex}</small>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
                                     <label>Estado civil</label>
-                                    <Select
+                                    <FormikReactSelect
+                                        name="civilStatus"
                                         id="civilStatus"
-                                        className="react-select civilStatus"
-                                        classNamePrefix="react-select"
-                                        options={options}/>
+                                        value={values.civilStatus}
+                                        isMulti={false}
+                                        options={civilStatus}
+                                        onChange={setFieldValue}
+                                        onBlur={setFieldTouched}
+                                    />
                                     {errors.civilStatus && touched.civilStatus && (
                                         <small id="emailHelp" className="form-text text-muted errorInput">{errors.civilStatus}</small>
                                     )}
@@ -180,11 +241,15 @@ class PersonalInformation extends Component {
 
                                 <div className="form-group col-md-6">
                                     <label>Pais de nacimiento</label>
-                                    <Select
+                                    <FormikReactSelect
+                                        name="country"
                                         id="country"
-                                        className="react-select country"
-                                        classNamePrefix="react-select"
-                                        options={options}/>
+                                        value={values.country}
+                                        isMulti={false}
+                                        options={countries}
+                                        onChange={setFieldValue}
+                                        onBlur={setFieldTouched}
+                                    />
                                     {errors.country && touched.country && (
                                         <small id="emailHelp" className="form-text text-muted errorInput">{errors.country}</small>
                                     )}
@@ -193,11 +258,15 @@ class PersonalInformation extends Component {
 
                                 <div className="form-group col-md-6">
                                     <label>Departamento de nacimiento</label>
-                                    <Select
+                                    <FormikReactSelect
+                                        name="department"
                                         id="department"
-                                        className="react-select department"
-                                        classNamePrefix="react-select"
-                                        options={options}/>
+                                        value={values.department}
+                                        isMulti={false}
+                                        options={departaments}
+                                        onChange={setFieldValue}
+                                        onBlur={setFieldTouched}
+                                    />
                                     {errors.department && touched.department && (
                                         <small id="emailHelp" className="form-text text-muted errorInput">{errors.department}</small>
                                     )}
@@ -205,11 +274,15 @@ class PersonalInformation extends Component {
 
                                 <div className="form-group col-md-6">
                                     <label>Ciudad de nacimiento</label>
-                                    <Select
+                                    <FormikReactSelect
+                                        name="city"
                                         id="city"
-                                        className="react-select city"
-                                        classNamePrefix="react-select"
-                                        options={options}/>
+                                        value={values.city}
+                                        isMulti={false}
+                                        options={cities}
+                                        onChange={setFieldValue}
+                                        onBlur={setFieldTouched}
+                                    />
                                     {errors.city && touched.city && (
                                         <small id="emailHelp" className="form-text text-muted errorInput">{errors.city}</small>
                                     )}
@@ -217,11 +290,15 @@ class PersonalInformation extends Component {
 
                                 <div className="form-group col-md-6">
                                     <label>Tipo de documento</label>
-                                    <Select
+                                    <FormikReactSelect
+                                        name="typeDocument"
                                         id="typeDocument"
-                                        className="react-select typeDocument"
-                                        classNamePrefix="react-select"
-                                        options={options}/>
+                                        value={values.typeDocument}
+                                        isMulti={false}
+                                        options={typeDocuments}
+                                        onChange={setFieldValue}
+                                        onBlur={setFieldTouched}
+                                    />
                                     {errors.typeDocument && touched.typeDocument && (
                                         <small id="emailHelp" className="form-text text-muted errorInput">{errors.typeDocument}</small>
                                     )}
@@ -230,54 +307,62 @@ class PersonalInformation extends Component {
                                 <div className="form-group col-md-6">
                                     <label>Numero de documento de identidad</label>
                                     <input
-                                        id="numerDocument"
+                                        id="documentNumber"
                                         className="form-control"
                                         autoComplete="off"
                                         type="text"
-                                        name="numerDocument"
+                                        name="documentNumber"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={values.numerDocument}
+                                        value={values.documentNumber}
                                         aria-describedby="emailHelp" placeholder="Primer nombre"/>
-                                    {errors.numerDocument && touched.numerDocument && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.numerDocument}</small>
+                                    {errors.documentNumber && touched.documentNumber && (
+                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.documentNumber}</small>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
                                     <label>Fecha de expedición</label>
                                     <input
-                                        id="expeditionDate"
+                                        id="documentExpeditionDate"
                                         className="form-control"
                                         type="date"
-                                        name="expeditionDate"
+                                        name="documentExpeditionDate"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={values.expeditionDate}
+                                        value={values.documentExpeditionDate}
                                         placeholder="Primer nombre"/>
-                                    {errors.expeditionDate && touched.expeditionDate && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.expeditionDate}</small>
+                                    {errors.documentExpeditionDate && touched.documentExpeditionDate && (
+                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.documentExpeditionDate}</small>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
                                     <label>Cargo actual</label>
-                                    <Select
-                                        id="actualCharge"
-                                        className="react-select actualCharge"
-                                        classNamePrefix="react-select"
-                                        options={options}/>
-                                    {errors.actualCharge && touched.actualCharge && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.actualCharge}</small>
+                                    <FormikReactSelect
+                                        name="profession"
+                                        id="profession"
+                                        value={values.profession}
+                                        isMulti={false}
+                                        options={professions}
+                                        onChange={setFieldValue}
+                                        onBlur={setFieldTouched}
+                                    />
+                                    {errors.profession && touched.profession && (
+                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.profession}</small>
                                     )}
                                 </div>
                                 
                                     
                             </div>
                             
-                            <div className="form-sent">
-                                <button type='button' className="sent-button bg-cl3f4c99" onClick={() => handleClick(values)}  disabled={!isValid}>
-                                    <i className="fa fa-paper-plane-o" aria-hidden="true"></i>
+                            <div className="btn-50 hv-border text-center">
+                                <button
+                                    //disabled={!isValid}
+                                    type='button'
+                                    className="btn bg-clff5f60"
+                                    onClick={() => handleClick(values, 1)}>
+                                    Guardar
                                 </button>
                             </div>
                         </Form>
