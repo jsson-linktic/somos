@@ -2,6 +2,11 @@ import React, {Component, createRef} from 'react';
 import { Formik, Form } from 'formik';
 import Header from '../core/header';
 import Footer from '../core/footer';
+import axios from 'axios';
+import schema from './schema';
+const url_dev = 'http://172.21.20.214:3000/api/userData';
+const SweetAlert = require('react-bootstrap-sweetalert');
+
 
 
 
@@ -37,6 +42,16 @@ class Home extends Component {
                     this.setState({email: values.email})
                 }
             }, 1000);
+
+            console.log('values :', values);
+
+            if(type) {
+                axios.post(`${url_dev}`, { ...values })
+                .then(res => {
+                    console.log(res);
+                    console.log(res.data);
+                })
+            }
         }
 
         const initialValues = {
@@ -47,6 +62,9 @@ class Home extends Component {
         
         return (
             <>
+
+               
+
                 <Header/>
                     <section className="flat-slider style1 clearfix">
                         <div className="rev_slider_wrapper fullwidthbanner-container" >
@@ -80,7 +98,6 @@ class Home extends Component {
                             </div>
                         </div> 
                     </section>
-
                     <section className="partner-clients partner-clients-style1"> 
                         <div className="container">
                             <div className="row">
@@ -154,9 +171,7 @@ class Home extends Component {
                                                                             value={values.email}
                                                                             placeholder="email"/>
                                                                             {errors.email && touched.email && (
-                                                                                <div className="errorInput">
-                                                                                    {errors.email}
-                                                                                </div>
+                                                                                <small className="form-text text-muted errorInput">{errors.email}</small>
                                                                             )}
 
                                                                         <button type='button' className="sent-button bg-cl3f4c99" onClick={() => handleClick(values)}  disabled={!isValid}>
@@ -443,20 +458,9 @@ class Home extends Component {
                                     <div className="form-apply">
                                         <div className="section-overlay183251"></div>
                                         <Formik
+                                            validationSchema={schema}
                                             enableReinitialize={true}
                                             initialValues={initialValues}
-                                            validate={values => {
-                                                let errors = {};
-                                                if (!values.email) {
-                                                    errors.email = 'Required';
-                                                } else if (
-                                                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                                                )
-                                                {
-                                                    errors.email = 'Invalid email address';
-                                                }
-                                                return errors;
-                                            }}
                                             onSubmit={(values) => {
                                                 handleClick(values)
                                             }}
@@ -481,7 +485,9 @@ class Home extends Component {
                                                                 onBlur={handleBlur}
                                                                 value={values.name}
                                                                 placeholder="Name"/>
-                                                            {errors.name && touched.name && errors.name}
+                                                                {errors.name && touched.name && (
+                                                                    <small className="form-text text-muted errorInput">{errors.name}</small>
+                                                                )}
                                                         </li>
                                                         <li>
                                                             <input
@@ -492,7 +498,9 @@ class Home extends Component {
                                                                 onBlur={handleBlur}
                                                                 value={values.email}
                                                                 placeholder="Email"/>
-                                                            {errors.email && touched.email && errors.email}
+                                                                {errors.email && touched.email && (
+                                                                    <small className="form-text text-muted errorInput">{errors.email}</small>
+                                                                )}
                                                         </li>
                                                         <li>
                                                             <input
@@ -504,11 +512,14 @@ class Home extends Component {
                                                                 value={values.phone}
                                                                 placeholder="Phone"
                                                             />
-                                                            {errors.phone && touched.phone && errors.phone}
+                                                            {errors.phone && touched.phone && (
+                                                                    <small className="form-text text-muted errorInput">{errors.phone}</small>
+                                                                )}
                                                         </li>
                                                     </ul>
                                                     <div className="btn-50 hv-border text-center">
                                                         <button
+                                                            disabled={!isValid}
                                                             type='button'
                                                             className="btn bg-clff5f60"
                                                             onClick={() => handleClick(values, 1)}>
