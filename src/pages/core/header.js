@@ -17,15 +17,7 @@ class Header extends React.Component {
                                     <nav id="main-nav" className="main-nav">
                                         <ul className="menu">
                                             
-                                            <li><a href="course.html">Carreras</a>
-                                                
-                                            </li>
-                                            <li><a href="about.html">Nosotros</a>
-                                                
-                                            </li>
-                                            <li><a href="blog.html">Blog</a>
-                                                
-                                            </li>
+                                            <li><a href="course.html">Carreras</a></li>
                                             <li className="nav-sing">
                                                 <a className="sing-in" href="#">Sing In</a>
                                                 <a className="sing-up" href="#">Sing Up</a>

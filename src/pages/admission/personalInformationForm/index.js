@@ -108,8 +108,6 @@ class PersonalInformation extends Component {
                 typeDocument: values.typeDocument.value,
                 userDataId: this.props.userDataId
             }
-            console.log(values)
-            console.log(JSON.stringify(data));
             delete data.id;
 
             axios.post(`${url_dev}personalInfo`, { ...data })
@@ -407,7 +405,7 @@ class PersonalInformation extends Component {
                             
                             <div className="btn-50 hv-border text-center">
                                 <button
-                                    //disabled={!isValid}
+                                    disabled={!isValid}
                                     type='button'
                                     className="btn bg-clff5f60"
                                     onClick={() => handleClick(values, 1)}>

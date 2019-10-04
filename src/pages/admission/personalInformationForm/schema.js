@@ -5,14 +5,12 @@ const schema = Yup.object().shape({
         .string()
         .required("Este campo es requerido."),
     secondName: Yup
-        .string()
-        .required("Este campo es requerido."),
+        .string(),
     lastName: Yup
         .string()
         .required("Este campo es requerido."),
     secondLastName: Yup
-        .string()
-        .required("Este campo es requerido."),
+        .string(),
     sex: Yup.object()
             .shape({
             label: Yup.string().required(),

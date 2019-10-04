@@ -127,11 +127,8 @@ class Home extends Component {
                                             <div className="apply-admission-wrap type2 bd-type1">
                                                 <div className="apply-admission-inner">
                                                     <h2 className="title text-center">
-                                                        <span>Apply for admission</span>
-                                                    </h2>
-                                                    <div className="caption text-center">
-                                                        Make it more simple!
-                                                    </div>
+                                                        <span>Quiero estudiar una carrera</span>
+                                                    </h2><br/>
                                                     <div className="apply-sent apply-sent-style1">
                                                         <Formik
                                                             enableReinitialize={true}
@@ -198,9 +195,9 @@ class Home extends Component {
                     <section className="online-courses online-courses-style1">
                         <div className="container">
                             <div className="title-section text-center">
-                                <p className="sub-title lt-sp17">Most popular courses</p>
+                                <p className="sub-title lt-sp17">Entregamos título universitario</p>
                                 <div className="flat-title medium">
-                                2000 + Online courses 
+                                Llegamos fuera de los cascos urbanos
                                 </div>
                             </div>
                             <div className="online-courses-wrap">
@@ -275,12 +272,14 @@ class Home extends Component {
                                         <div className="flat-imagebox imagebox-services style1">
                                             <div className="imagebox-content">
                                                 <img src={require('../../assets/images/home1/13.png')} alt="images"/>
-                                                <h5 className="text-one text-white">Education Services</h5>
+                                                <h5 className="text-one text-white">Llegamos a cualquier rincón de Colombia</h5>
                                                 <p className="text-white">
-                                                    Education is the most power which you can use to change the world.” Education is the key to.
+                                                    No hay limite geográfico o tecnológico que nos impida llegar a todo el país. 
                                                 </p>
                                                 <div className="read-more">
-                                                    <a href="#">Read More</a>
+                                                    {
+                                                        //<a href="#">Read More</a>
+                                                    }
                                                 </div>
                                             </div>
                                         </div>
@@ -291,12 +290,14 @@ class Home extends Component {
                                         <div className="flat-imagebox imagebox-services style1">
                                             <div className="imagebox-content">
                                                 <img src={require('../../assets/images/home1/14.png')} alt="images"/>
-                                                <h5 className="text-two text-white">Success Rate</h5>
+                                                <h5 className="text-two text-white">Obtén tu título universitario profesional en 3 años</h5>
                                                 <p className="text-white">
-                                                    Education is the most power which you can use to change the world.” Education is the key to.
+                                                    Completa tu carrera rápidamente: como técnico profesional en 1 año y medio, como tecnólogo en 2 años y como profesional en 3 años.
                                                 </p>
                                                 <div className="read-more">
-                                                    <a href="#">Read More</a>
+                                                    {
+                                                        //<a href="#">Read More</a>
+                                                    }
                                                 </div>
                                             </div>
                                         </div>
@@ -307,12 +308,14 @@ class Home extends Component {
                                         <div className="flat-imagebox imagebox-services style1">
                                             <div className="imagebox-content">
                                             <img src={require('../../assets/images/home1/14.png')} alt="images"/>
-                                                <h5 className="text-three text-white">Foreign Student</h5>
+                                                <h5 className="text-three text-white">Recibe una Tablet para que estudies desde cualquier lugar </h5>
                                                 <p className="text-white">
-                                                    Education is the most power which you can use to change the world.” Education is the key to.
+                                                    Recibirás una tablet a través de Servientrega que te permitirá obtener el material de estudio y presentar los exámenes, y en caso que no cuentes con acceso a Internet, haremos la instalación de un modem en tu localidad.
                                                 </p>
                                                 <div className="read-more">
-                                                    <a href="#">Read More</a>
+                                                    {
+                                                        //<a href="#">Read More</a>
+                                                    }
                                                 </div>
                                             </div>
                                         </div>
@@ -340,31 +343,28 @@ class Home extends Component {
                             <div className="col-right">
                                 <div className="content-introduce content-introduce-style1">
                                     <div className="title-section">
-                                        <p className="sub-title lt-sp25">About our university</p>
-                                        <div className="flat-title larger heading-type1">Take a tour</div>
+                                        <p className="sub-title lt-sp25">Sobre nuestra universidad</p>
+                                        <div className="flat-title larger heading-type1">Educación Superior de calidad</div>
                                     </div>
                                     <div className="content-introduce-inner">
                                         <p>
-                                            Education is the most powerful weapon which you can use to change the world.” Education is the key to elimi-nating gender inequality, to reducing poverty.
-                                        </p>
-                                        <p>
-                                            to creating a sustainable planet, to preventing needless deaths and illness, and to fostering peace.
+                                        La Fundación de Educación Superior San José (Fessanjose), ganadora del premio internacional de Innovación Educativa, y la número 23 entre 480 universidades del país, es la universidad que te brindará estudios superiores virtuales con calidad de educación. 
                                         </p>
                                         <div className="content-list">
                                             <ul>
                                                 <li>
                                                     <span className="text">
-                                                        Education is extremely important because you overcome superstitions.
+                                                    En la Universidad San José (Usanjose) puedes hacer carreras universitarias 100 % virtuales, y obtener tu título como técnico, tecnólogo o profesional.
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span className="text">
-                                                        Education is only valuable if children are being taught right things.
+                                                    La Usanjose pone a tu disposición diferentes procesos como alumno nuevo ingreso.
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span className="text">  
-                                                        Education is not key to success in life.
+                                                        Fessanjose tiene como meta formar grandes profesionales integrales que contribuyan tanto a la vida social como laboral. 
                                                     </span>
                                                 </li>
                                             </ul>
@@ -382,7 +382,7 @@ class Home extends Component {
                             <div className="col-benefit-left">
                                 <div className="wrap-inconbox-benefit">
                                     <div className="title-section">
-                                        <div className="flat-title small heading-type2 text-white">Why choose us?</div>
+                                        <div className="flat-title small  text-white">Hacemos más accesible el ingreso a la educación superior…</div>
                                     </div>
                                     <div className="iconbox-benefit iconbox-benefit-style1">
                                         <div className="row">
@@ -392,10 +392,10 @@ class Home extends Component {
                                                         
                                                         <div className="iconbox-content img-one">
                                                             <h3>
-                                                                <a href="#">Certificate</a>
+                                                                <a href="#">SOMOS Mutualidad</a>
                                                             </h3>
                                                             <p>
-                                                                Education is the most power which you can to change the world.” Education is the key to.
+                                                                Es una mutual o entidad perteneciente al sector solidario que parte de un modelo de economía centrado en el desarrollo humano y la equidad.
                                                             </p>
                                                         </div>
                                                     </div>
@@ -407,11 +407,25 @@ class Home extends Component {
                                                         
                                                         <div className="iconbox-content img-two">
                                                             <h3>
-                                                                <a href="#">Life Programs</a>
+                                                                <a href="#">Beneficios de la mutual</a>
                                                             </h3>
-                                                            <p>
-                                                                Education is the most power which you can to change the world.” Education is the key to.
-                                                            </p>
+                                                            <ul>
+                                                                <li>
+                                                                    <span className="text">Seguros</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span className="text">Bonos</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span className="text">Auxilio Funerario</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span className="text">Convenios de servicios sociales. </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span className="text">Líneas de asistencia médica y legal.</span>
+                                                                </li>
+                                                            </ul>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -422,10 +436,10 @@ class Home extends Component {
                                                         
                                                         <div className="iconbox-content img-three">
                                                             <h3>
-                                                                <a href="#">Affordability</a>
+                                                                <a href="#">Somos Educación</a>
                                                             </h3>
                                                             <p>
-                                                                Education is the most power which you can to change the world.” Education is the key to.
+                                                            Es un programa creado por SOMOS MUTUALIDAD, con el fin de ayudar a todas aquellas personas que desean hacer carrera universitaria, pero se ven limitados por los altos costos y el tiempo que conlleva una carrera de pregrado.
                                                             </p>
                                                         </div>
                                                     </div>
@@ -437,11 +451,17 @@ class Home extends Component {
                                                         
                                                         <div className="iconbox-content img-four">
                                                             <h3>
-                                                                <a href="#">Social</a>
+                                                                <a href="#">Valor de la carrera</a>
                                                             </h3>
-                                                            <p>
-                                                                Education is the most power which you can to change the world.” Education is the key to.
-                                                            </p>
+                                                                Al ser parte de SOMOS EDUCACIÓN recibirás, además de los beneficios de la mutual, los siguientes costos especiales para estudiar:
+                                                            <ul>
+                                                                <li>
+                                                                    <span className="text">-Valor matrícula (pago único) = $199.000 </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span className="text">-Valor período o semestre: $704.000</span>
+                                                                </li>
+                                                            </ul>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -544,13 +564,13 @@ class Home extends Component {
                             <div className="col-left">
                                 <div className="content-event-style1 themesflat-content-box" data-padding="13.7% 1.2% 0% 0%" data-sdesktoppadding="0% 0% 0% 0%" data-ssdesktoppadding="0% 0% 0% 0%" data-mobipadding="0% 0% 0% 0%" data-smobipadding="0% 0% 0% 0%">
                                     <div className="title-section">
-                                        <div className="flat-title larger heading-type3">All upcoming events</div>
+                                        <div className="flat-title larger heading-type3">NUESTRAS MODALIDADES</div>
                                     </div>
                                     <div className="content-event">
                                         <div className="entry-info clearfix">
                                             <div className="entry-title">
                                                 <a href="#" className="cl-7ecc88">
-                                                    International Conference on Business 
+                                                    Técnico Profesional
                                                 </a>
                                             </div>
                                             
@@ -563,7 +583,7 @@ class Home extends Component {
                                         <div className="entry-info clearfix">
                                             <div className="entry-title">
                                                 <a href="#" className="cl-3f4c99">
-                                                    International Conference on Business    
+                                                    Tecnólogo
                                                 </a>
                                             </div>
                                             
@@ -576,7 +596,7 @@ class Home extends Component {
                                         <div className="entry-info clearfix">
                                             <div className="entry-title">
                                                 <a href="#" className="cl-ff5f60">
-                                                    International Conference on Business 
+                                                    Profesional
                                                 </a> 
                                             </div>
                                             
@@ -587,7 +607,8 @@ class Home extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-right">
+                            
+                            <div className="col-right" style={{position: "absolute", left: "700px"}}>
                                 <div className="images-list themesflat-content-box" data-padding="0% 0% 0% 15.1%" data-sdesktoppadding="0% 0% 0% 5%" data-ssdesktoppadding="0% 0% 0% 0%" data-mobipadding="0% 0% 0% 0%" data-smobipadding="0% 0% 0% 0%">
                                     <div className="images-list-1">
                                         <div className="img-event">
@@ -613,11 +634,16 @@ class Home extends Component {
                     <section className="latest-blog latest-blog-type2 latest-blog-style2">
                         <div className="container">
                             <div className="title-section">
-                                <div className="flat-title small heading-type7">
-                                Latest Blog 
+                                <div className="flat-title small">
+                                    Nuestros lideres
                                 </div>
                             </div>
                             <div className="row">
+                            <div className="col-lg-12 col-md-12">
+                                <div className="iconbox-content img-three">
+                                    <p>SOMOS EDUCACIÓN está conformado por un equipo de lideres íntegros y transparentes que practican la comprensión y el profesionalismo educativo.</p>
+                                </div>
+                            </div>
                                 <div className="col-lg-4 col-md-4">
                                     <article className="post post-style2 box-shadow-type1">
                                         <div className="featured-post">

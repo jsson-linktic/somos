@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 //Components
 import PersonalInformation from './personalInformationForm';
+import HomeInfo from './homeInfo';
 
 
 class Admisison extends Component {
@@ -58,10 +59,23 @@ class Admisison extends Component {
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div className="apply-admission" >
+                                <div className="apply-admission-wrap type2 revert bd-type1">
+                                    <div className="apply-admission-inner">
+                                        <h2 className="title text-center">
+                                            <span>Domicilio</span>
+                                        </h2><br/>
+                                        <div className="col-md-12">
+                                            <HomeInfo/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
             </>
         )
     }
