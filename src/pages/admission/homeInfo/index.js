@@ -204,7 +204,7 @@ class HomeInfo extends Component {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.email}
-                                        aria-describedby="emailHelp" placeholder="Primer nombre"/>
+                                        aria-describedby="emailHelp" placeholder="Teléfono de contacto"/>
                                     {errors.email && touched.email && (
                                         <small id="emailHelp" className="form-text text-muted errorInput">{errors.email}</small>
                                     )}
