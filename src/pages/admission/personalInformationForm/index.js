@@ -64,12 +64,6 @@ class PersonalInformation extends Component {
             { value: 'Mujer', label: 'Mujer' }
         ]
 
-        const options = [
-            { value: 'chocolate', label: 'Chocolate' },
-            { value: 'strawberry', label: 'Strawberry' },
-            { value: 'vanilla', label: 'Vanilla' }
-        ]
-
         const civilStatus = [
             { value: 'Solter@', label: 'Solter@' },
             { value: 'Casad@', label: 'Casad@' },
@@ -110,7 +104,9 @@ class PersonalInformation extends Component {
             }
             delete data.id;
 
-            axios.post(`${url_dev}personalInfo`, { ...data })
+            this.props.dataStep(data, "PersonalInformation")
+
+            /*axios.post(`${url_dev}personalInfo`, { ...data })
                 .then(res => {
                     console.log(res);
                     console.log(res.data);
@@ -123,7 +119,7 @@ class PersonalInformation extends Component {
                 .catch(e => {
                     console.log('e :', e);
                     swal("Oppss!", "Error en el servidor!", "error");
-                })
+                })*/
         }
 
         const initialValues = {
@@ -402,9 +398,9 @@ class PersonalInformation extends Component {
 
                             </div>
                             
-                            <div className="btn-50 hv-border text-center">
+                            <div className="btn-50 hv-border text-right">
                                 <button
-                                    disabled={!isValid}
+                                    //disabled={!isValid}
                                     type='button'
                                     className="btn bg-clff5f60"
                                     onClick={() => handleClick(values, 1)}>

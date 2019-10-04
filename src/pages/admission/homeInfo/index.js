@@ -4,13 +4,21 @@ import schema from './schema'
 import { FormikReactSelect } from '../../../components/FormikFields';
 import axios from 'axios';
 import swal from 'sweetalert';
-const url_dev = 'http://192.168.1.144:3000/api/';
+const url_dev = 'http://172.23.182.193:3000/api/';
 
 
 class HomeInfo extends Component {
     render() {
 
-        const initialValues = {};
+        const initialValues = {
+            city: '',
+            cityNotification: '',
+            country: '',
+            department: '',
+            departmentNotification: '',
+            countryNotification: '',
+
+        };
 
         const countries = [
             { value: 'Colombia', label: 'Colombia' }
@@ -25,6 +33,7 @@ class HomeInfo extends Component {
         ]
 
         const handleClick = values => {
+            console.log('values :', values);
             const data = {
                 ...values,
                 city: values.city.value,
@@ -38,7 +47,9 @@ class HomeInfo extends Component {
             
             delete data.id;
 
-            axios.post(`${url_dev}personalInfo`, { ...data })
+            this.props.dataStep(data, "HomeInfo")
+
+            /*axios.post(`${url_dev}personalInfo`, { ...data })
                 .then(res => {
                     console.log(res);
                     console.log(res.data);
@@ -51,7 +62,7 @@ class HomeInfo extends Component {
                 .catch(e => {
                     console.log('e :', e);
                     swal("Oppss!", "Error en el servidor!", "error");
-                })
+                })*/
         }
         
         return (
@@ -240,9 +251,9 @@ class HomeInfo extends Component {
                                     )}
                                 </div>
                             </div>
-                            <div className="btn-50 hv-border text-center">
+                            <div className="btn-50 hv-border text-right">
                                 <button
-                                    disabled={!isValid}
+                                    //disabled={!isValid}
                                     type='button'
                                     className="btn bg-clff5f60"
                                     onClick={() => handleClick(values, 1)}>

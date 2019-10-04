@@ -38,7 +38,7 @@ class DataTreatment extends Component {
                                     <div className="iconbox">
                                         <div className="iconbox-content img-one">
                                             <h3 className="color-white">
-                                                <a href="#"><label className="cw">Términos y condiciones</label></a>
+                                                <a href="/#"><label className="cw">Términos y condiciones</label></a>
                                             </h3>
                                         </div>
                                     </div>
@@ -46,7 +46,7 @@ class DataTreatment extends Component {
                                     <div className="iconbox pt-5">
                                         <div className="iconbox-content img-one">
                                             <h3 className="color-white">
-                                                <a href="#"><label className="cw">Politica de tratamiento de datos</label></a>
+                                                <a href="/#"><label className="cw">Politica de tratamiento de datos</label></a>
                                             </h3>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@ class DataTreatment extends Component {
                                     <div className="iconbox pt-5">
                                         <div className="iconbox-content img-one">
                                             <h3 className="color-white">
-                                                <a href="#"><label className="cw">Autorización de uso de la información</label></a>
+                                                <a href="/#"><label className="cw">Autorización de uso de la información</label></a>
                                             </h3>
                                         </div>
                                     </div>
@@ -76,7 +76,7 @@ class DataTreatment extends Component {
                                 </div>
                             </div><br/>
 
-                            <div className="btn-50 hv-border text-center">
+                            <div className="btn-50 hv-border text-right">
                                 <button
                                     disabled={!isValid}
                                     type='button'

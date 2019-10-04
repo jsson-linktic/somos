@@ -29,9 +29,9 @@ class Footer extends React.Component {
                                     Company
                                 </h3>
                                 <ul className="widget-nav-menu">
-                                    <li><a href="#">About Company</a></li>
-                                    <li><a href="#">Feature Course</a></li>
-                                    <li><a href="#">Careers</a></li>
+                                    <li><a href="/#">About Company</a></li>
+                                    <li><a href="/#">Feature Course</a></li>
+                                    <li><a href="/#">Careers</a></li>
                                 </ul>
                             </div>
                             <div className="col-lg-2 col-link">
@@ -39,9 +39,9 @@ class Footer extends React.Component {
                                     Help Links
                                 </h3>
                                 <ul className="widget-nav-menu">
-                                    <li><a href="#">Student Support</a></li>
-                                    <li><a href="#">Course Policy</a></li>
-                                    <li><a href="#">Register  Key</a></li>
+                                    <li><a href="/#">Student Support</a></li>
+                                    <li><a href="/#">Course Policy</a></li>
+                                    <li><a href="/#">Register  Key</a></li>
                                 </ul>
                             </div>
                             <div className="col-lg-3 col-course">
@@ -49,9 +49,9 @@ class Footer extends React.Component {
                                     Course
                                 </h3>
                                 <ul className="widget-nav-menu">
-                                    <li><a href="#">Wordpres</a></li>
-                                    <li><a href="#">Photography</a></li>
-                                    <li><a href="#">Learning English</a></li>
+                                    <li><a href="/#">Wordpres</a></li>
+                                    <li><a href="/#">Photography</a></li>
+                                    <li><a href="/#">Learning English</a></li>
                                 </ul>
                             </div>
                             <div className="col-lg-2 col-media">
@@ -59,10 +59,14 @@ class Footer extends React.Component {
                                     Social Media
                                 </h3>
                                 <ul className="widget-social-media">
-                                    <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    {
+                                        /*
+                                            <li><a href="/#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="/#"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                            <li><a href="/#"><i className="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                            <li><a href="/#"><i className="fa fa-google-plus" aria-hidden="true"></i></a></li>   
+                                        */
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -81,23 +85,25 @@ class Footer extends React.Component {
                                         Roy Design.
                                     </span>
                                     <span className="license">
-                                        <a href="#">All Rights Reserved</a>
+                                        <a href="/#">All Rights Reserved</a>
                                     </span>
                                 </div>
                             </div>
                             <div className="bottom-bar-menu">
                                 <ul className="bottom-nav">
-                                    <li className="menu-item"><a href="#">About Company</a></li>
-                                    <li className="menu-item"><a href="#">Privacy Policy</a></li>
-                                    <li className="menu-item"><a href="#">Help Center</a></li>
-                                    <li className="menu-item"><a href="#">Terms</a></li>
-                                    <li className="menu-item"><a href="#">Site Map</a></li>
+                                    <li className="menu-item"><a href="/#">About Company</a></li>
+                                    <li className="menu-item"><a href="/#">Privacy Policy</a></li>
+                                    <li className="menu-item"><a href="/#">Help Center</a></li>
+                                    <li className="menu-item"><a href="/#">Terms</a></li>
+                                    <li className="menu-item"><a href="/#">Site Map</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a id="scroll-top" className="show"></a>
+                {
+                    //<a id="scroll-top" className="show"></a>
+                }
                 </footer>
             </>
         )

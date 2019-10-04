@@ -1,15 +1,7 @@
 import React from "react"
-import { Link } from "gatsby"
-
-import { rhythm, scale } from "../utils/typography"
-
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let header
-
    
     return (
       <>
@@ -34,8 +26,8 @@ class Layout extends React.Component {
                                       
                                   </li>
                                   <li className="nav-sing">
-                                      <a className="sing-in" href="#">Sing In</a>
-                                      <a className="sing-up" href="#">Sing Up</a>
+                                      <a className="sing-in" href="/#">Sing In</a>
+                                      <a className="sing-up" href="/#">Sing Up</a>
                                   </li>
                               </ul>
                           </nav>

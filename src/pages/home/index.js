@@ -96,7 +96,7 @@ class Home extends Component {
                                         data-splitout="none" 
                                         data-responsive_offset="on" 
                                         data-paddingtop= "['50','50','50','50']"
-                                        data-paddingbottom= "['50','50','50','50']"> <a href="#" className="text-white sl-phone"><i className="fa fa-phone" aria-hidden="true"></i> +91 254 785 587</a><a href="#" className="text-white sl-email"><i className="fa fa-envelope" aria-hidden="true"></i> educate@info.com</a></div>
+                                        data-paddingbottom= "['50','50','50','50']"> <a href="/#" className="text-white sl-phone"><i className="fa fa-phone" aria-hidden="true"></i> +91 254 785 587</a><a href="/#" className="text-white sl-email"><i className="fa fa-envelope" aria-hidden="true"></i> educate@info.com</a></div>
                                     </li>
                                 </ul>
                             </div>
@@ -209,7 +209,7 @@ class Home extends Component {
                                             </div>
                                             <div className="author-info">
                                                 <div className="name">
-                                                    <a href="course-single.html">Administración de Empresas</a> 
+                                                    <a href="/#">Administración de Empresas</a> 
                                                 </div>
                                                 <div className="border-bt">
                                                 </div>
@@ -223,7 +223,7 @@ class Home extends Component {
                                             </div>
                                             <div className="author-info">
                                                 <div className="name">
-                                                    <a href="course-single.html">Contaduría Pública</a> 
+                                                    <a href="/#">Contaduría Pública</a> 
                                                 </div>
                                                 <div className="border-bt">
                                                 </div>
@@ -237,7 +237,7 @@ class Home extends Component {
                                             </div>
                                             <div className="author-info">
                                                 <div className="name">
-                                                    <a href="course-single.html"> Ingeniería de sistemas</a> 
+                                                    <a href="/#"> Ingeniería de sistemas</a> 
                                                 </div>
                                                 <div className="border-bt">
                                                 </div>
@@ -251,7 +251,7 @@ class Home extends Component {
                                             </div>
                                             <div className="author-info">
                                                 <div className="name">
-                                                    <a href="course-single.html"> Pre-ingeniería Industrial</a> 
+                                                    <a href="/#"> Pre-ingeniería Industrial</a> 
                                                 </div>
                                                 <div className="border-bt">
                                                 </div>
@@ -278,7 +278,7 @@ class Home extends Component {
                                                 </p>
                                                 <div className="read-more">
                                                     {
-                                                        //<a href="#">Read More</a>
+                                                        //<a href="/#">Read More</a>
                                                     }
                                                 </div>
                                             </div>
@@ -296,7 +296,7 @@ class Home extends Component {
                                                 </p>
                                                 <div className="read-more">
                                                     {
-                                                        //<a href="#">Read More</a>
+                                                        //<a href="/#">Read More</a>
                                                     }
                                                 </div>
                                             </div>
@@ -314,7 +314,7 @@ class Home extends Component {
                                                 </p>
                                                 <div className="read-more">
                                                     {
-                                                        //<a href="#">Read More</a>
+                                                        //<a href="/#">Read More</a>
                                                     }
                                                 </div>
                                             </div>
@@ -392,7 +392,7 @@ class Home extends Component {
                                                         
                                                         <div className="iconbox-content img-one">
                                                             <h3>
-                                                                <a href="#">SOMOS Mutualidad</a>
+                                                                <a href="/#">SOMOS Mutualidad</a>
                                                             </h3>
                                                             <p>
                                                                 Es una mutual o entidad perteneciente al sector solidario que parte de un modelo de economía centrado en el desarrollo humano y la equidad.
@@ -407,7 +407,7 @@ class Home extends Component {
                                                         
                                                         <div className="iconbox-content img-two">
                                                             <h3>
-                                                                <a href="#">Beneficios de la mutual</a>
+                                                                <a href="/#">Beneficios de la mutual</a>
                                                             </h3>
                                                             <ul>
                                                                 <li>
@@ -436,7 +436,7 @@ class Home extends Component {
                                                         
                                                         <div className="iconbox-content img-three">
                                                             <h3>
-                                                                <a href="#">Somos Educación</a>
+                                                                <a href="/#">Somos Educación</a>
                                                             </h3>
                                                             <p>
                                                             Es un programa creado por SOMOS MUTUALIDAD, con el fin de ayudar a todas aquellas personas que desean hacer carrera universitaria, pero se ven limitados por los altos costos y el tiempo que conlleva una carrera de pregrado.
@@ -451,7 +451,7 @@ class Home extends Component {
                                                         
                                                         <div className="iconbox-content img-four">
                                                             <h3>
-                                                                <a href="#">Valor de la carrera</a>
+                                                                <a href="/#">Valor de la carrera</a>
                                                             </h3>
                                                                 Al ser parte de SOMOS EDUCACIÓN recibirás, además de los beneficios de la mutual, los siguientes costos especiales para estudiar:
                                                             <ul>
@@ -569,7 +569,7 @@ class Home extends Component {
                                     <div className="content-event">
                                         <div className="entry-info clearfix">
                                             <div className="entry-title">
-                                                <a href="#" className="cl-7ecc88">
+                                                <a href="/#" className="cl-7ecc88">
                                                     Técnico Profesional
                                                 </a>
                                             </div>
@@ -582,7 +582,7 @@ class Home extends Component {
                                     <div className="content-event">
                                         <div className="entry-info clearfix">
                                             <div className="entry-title">
-                                                <a href="#" className="cl-3f4c99">
+                                                <a href="/#" className="cl-3f4c99">
                                                     Tecnólogo
                                                 </a>
                                             </div>
@@ -595,7 +595,7 @@ class Home extends Component {
                                     <div className="content-event">
                                         <div className="entry-info clearfix">
                                             <div className="entry-title">
-                                                <a href="#" className="cl-ff5f60">
+                                                <a href="/#" className="cl-ff5f60">
                                                     Profesional
                                                 </a> 
                                             </div>

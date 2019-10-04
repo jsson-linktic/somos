@@ -8,9 +8,45 @@ import DataTreatment from './dataTreatment';
 
 
 class Admisison extends Component {
+    state = {
+        step: 1,
+        personalInformation: {},
+        HomeInfo: {}
+    }
     render (){
         const query = new URLSearchParams(this.props.location.search);
         const userDataId = query.get('id')
+
+        const step = this.state.step;
+        const dataStep = (data, status) => {
+            switch (status) {
+                case "PersonalInformation":
+                    this.setState({
+                        personalInformation: data,
+                        step: 2
+                    })
+                    console.log('data 222:', data);
+                break;
+
+                case "HomeInfo":
+                    this.setState({
+                        personalInformation: data,
+                        step: 3
+                    })
+                    console.log('data 333:', data);
+                break;
+
+                case "AdditionalInfo":
+                        this.setState({
+                            personalInformation: data,
+                            step: 4
+                        })
+                        console.log('data 333:', data);
+
+                break;
+
+            }
+        }
         return (
             <>
                 <section className="flat-slider style1 clearfix">
@@ -39,7 +75,7 @@ class Admisison extends Component {
                                     data-splitout="none" 
                                     data-responsive_offset="on" 
                                     data-paddingtop= "['50','50','50','50']"
-                                    data-paddingbottom= "['50','50','50','50']"> <a href="#" className="text-white sl-phone"><i className="fa fa-phone" aria-hidden="true"></i> +91 254 785 587</a><a href="#" className="text-white sl-email"><i className="fa fa-envelope" aria-hidden="true"></i> educate@info.com</a></div>
+                                    data-paddingbottom= "['50','50','50','50']"> <a href="/#" className="text-white sl-phone"><i className="fa fa-phone" aria-hidden="true"></i> +91 254 785 587</a><a href="/#" className="text-white sl-email"><i className="fa fa-envelope" aria-hidden="true"></i> educate@info.com</a></div>
                                 </li>
                             </ul>
                         </div>
@@ -49,58 +85,62 @@ class Admisison extends Component {
                 <div className="container">
                     <div className="col-lg-12 col-md-12 col-sm-12">
                         <div className="iconbox-style1">
-                            <div className="apply-admission">
-                                <div className="apply-admission-wrap type2 revert bd-type1">
-                                    <div className="apply-admission-inner">
-                                        <h2 className="title text-center">
-                                            <span>Información personal</span>
-                                        </h2><br/>
-                                        <div className="col-md-12">
-                                            <PersonalInformation userDataId={userDataId}/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
                             <div className="apply-admission" >
                                 <div className="apply-admission-wrap type2 revert bd-type1">
-                                    <div className="apply-admission-inner">
-                                        <h2 className="title text-center">
-                                            <span>Domicilio</span>
-                                        </h2><br/>
-                                        <div className="col-md-12">
-                                            <HomeInfo userDataId={userDataId}/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                    {
+                                        step == 1 && (
+                                            <div className="apply-admission-inner">
+                                                <h2 className="title text-center">
+                                                    <span>Información personal</span>
+                                                </h2><br/>
+                                                <div className="col-md-12">
+                                                    <PersonalInformation userDataId={userDataId} dataStep={ (data, status) => dataStep(data, status)}/>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
 
-                            <div className="apply-admission" style={{marginTop: "-70px"}}>
-                                <div className="apply-admission-wrap type2 revert bd-type1">
-                                    <div className="apply-admission-inner">
-                                        <h2 className="title text-center">
-                                            <span>información adicional</span>
-                                        </h2><br/>
-                                        <div className="col-md-12">
-                                            <AdditionalInfo userDataId={userDataId}/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                    {
+                                        step == 2 && (
+                                            <div className="apply-admission-inner">
+                                                <h2 className="title text-center">
+                                                    <span>Domicilio</span>
+                                                </h2><br/>
+                                                <div className="col-md-12">
+                                                    <HomeInfo userDataId={userDataId} dataStep={ (data, status) => dataStep(data, status)}/>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
 
-                            <div className="apply-admission pt-5" style={{marginTop: "150px"}}>
-                                <div className="apply-admission-wrap type2 revert bd-type1">
-                                    <div className="apply-admission-inner">
-                                        <h2 className="title text-center">
-                                            <span>información adicional</span>
-                                        </h2><br/>
-                                        <div className="col-md-12">
-                                            <DataTreatment userDataId={userDataId}/>
-                                        </div>
-                                    </div>
+                                    {
+                                        step == 3 && (
+                                            <div className="apply-admission-inner">
+                                                <h2 className="title text-center">
+                                                    <span>información adicional</span>
+                                                </h2><br/>
+                                                <div className="col-md-12">
+                                                    <AdditionalInfo userDataId={userDataId} dataStep={ (data, status) => dataStep(data, status)}/>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+
+                                    {
+                                        step == 4 && (
+                                            <div className="apply-admission-inner">
+                                                <h2 className="title text-center">
+                                                    <span>información adicional</span>
+                                                </h2><br/>
+                                                <div className="col-md-12">
+                                                    <DataTreatment userDataId={userDataId} dataStep={ (data, status) => dataStep(data, status)}/>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                    
                                 </div>
-                            </div>
+                            </div>                            
                         </div>
                     </div>
                 </div>

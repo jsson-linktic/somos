@@ -8,6 +8,12 @@ class AdditionalInfo extends Component {
         const initialValues = {}
 
         const handleClick = values => {
+
+            const data = {
+                ...values
+            }
+
+            this.props.dataStep(data, "AdditionalInfo")
             console.log('values :', values);
         }
 
@@ -69,9 +75,9 @@ class AdditionalInfo extends Component {
                                     )}
                                 </div>
                             </div>
-                            <div className="btn-50 hv-border text-center">
+                            <div className="btn-50 hv-border text-right">
                                 <button
-                                    disabled={!isValid}
+                                    //disabled={!isValid}
                                     type='button'
                                     className="btn bg-clff5f60"
                                     onClick={() => handleClick(values, 1)}>
