@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 //Components
 import PersonalInformation from './personalInformationForm';
 import HomeInfo from './homeInfo';
+import AdditionalInfo from './additionalInfo';
 
 
 class Admisison extends Component {
@@ -68,7 +69,20 @@ class Admisison extends Component {
                                             <span>Domicilio</span>
                                         </h2><br/>
                                         <div className="col-md-12">
-                                            <HomeInfo/>
+                                            <HomeInfo userDataId={userDataId}/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="apply-admission" style={{marginTop: "-70px"}}>
+                                <div className="apply-admission-wrap type2 revert bd-type1">
+                                    <div className="apply-admission-inner">
+                                        <h2 className="title text-center">
+                                            <span>información adicional</span>
+                                        </h2><br/>
+                                        <div className="col-md-12">
+                                            <AdditionalInfo userDataId={userDataId}/>
                                         </div>
                                     </div>
                                 </div>

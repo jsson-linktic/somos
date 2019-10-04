@@ -22,6 +22,18 @@ class HomeInfo extends Component {
 
         const handleClick = values => {
             console.log('values :', values);
+
+            const data = {
+                ...values,
+                city: values.city.value,
+                cityNotification: values.cityNotification.value,
+                country: values.country.value,
+                department: values.department.value,
+                departmentNotification: values.departmentNotification.value,
+                countryNotification: values.countryNotification.value,
+                userDataId: this.props.userDataId
+            }
+            console.log('data :', data);
         }
         
         return (
@@ -57,7 +69,7 @@ class HomeInfo extends Component {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.email}
-                                        aria-describedby="emailHelp" placeholder="Primer nombre"/>
+                                        aria-describedby="emailHelp" placeholder="Dirección de correo electrónico"/>
                                     {errors.email && touched.email && (
                                         <small id="emailHelp" className="form-text text-muted errorInput">{errors.email}</small>
                                     )}
@@ -74,7 +86,7 @@ class HomeInfo extends Component {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.address}
-                                        aria-describedby="emailHelp" placeholder="Primer nombre"/>
+                                        aria-describedby="emailHelp" placeholder="Dirección de domicilio"/>
                                     {errors.address && touched.address && (
                                         <small id="emailHelp" className="form-text text-muted errorInput">{errors.address}</small>
                                     )}
@@ -139,7 +151,7 @@ class HomeInfo extends Component {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.addressNotification}
-                                        aria-describedby="emailHelp" placeholder="Primer nombre"/>
+                                        aria-describedby="emailHelp" placeholder="Dirección de notificaciones"/>
                                     {errors.addressNotification && touched.addressNotification && (
                                         <small id="emailHelp" className="form-text text-muted errorInput">{errors.addressNotification}</small>
                                     )}
@@ -196,21 +208,28 @@ class HomeInfo extends Component {
                                 <div className="form-group col-md-6">
                                     <label>Teléfono de contacto</label>
                                     <input
-                                        id="email"
+                                        id="phone"
                                         className="form-control"
                                         autoComplete="off"
                                         type="text"
-                                        name="email"
+                                        name="phone"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={values.email}
+                                        value={values.phone}
                                         aria-describedby="emailHelp" placeholder="Teléfono de contacto"/>
-                                    {errors.email && touched.email && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.email}</small>
+                                    {errors.phone && touched.phone && (
+                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.phone}</small>
                                     )}
                                 </div>
-                                
-                                
+                            </div>
+                            <div className="btn-50 hv-border text-center">
+                                <button
+                                    disabled={!isValid}
+                                    type='button'
+                                    className="btn bg-clff5f60"
+                                    onClick={() => handleClick(values, 1)}>
+                                    Guardar
+                                </button>
                             </div>
                         </Form>
                     )}

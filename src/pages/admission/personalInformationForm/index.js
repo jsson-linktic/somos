@@ -399,8 +399,7 @@ class PersonalInformation extends Component {
                                         <small id="emailHelp" className="form-text text-muted errorInput">{errors.profession}</small>
                                     )}
                                 </div>
-                                
-                                    
+
                             </div>
                             
                             <div className="btn-50 hv-border text-center">
