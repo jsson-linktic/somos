@@ -38,6 +38,7 @@
     "react-router-dom": "^5.1.2",
     "react-select": "^3.0.8",
     "react-typography": "^0.16.19",
+    "sweetalert": "^2.1.2",
     "sweetalert-react": "^0.4.11",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",

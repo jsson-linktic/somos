@@ -74,7 +74,7 @@ class BlogIndex extends React.Component {
                 to="/home" />
             <Switch>
                 <Route path="/home" component={Home}/>
-                <Route path="/admisison" component={Admisison}/>
+                <Route path="/admisison/:id" render={(props) => <Admisison {...props} />}/>
             </Switch>
         </BrowserRouter>
 

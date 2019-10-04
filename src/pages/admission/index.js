@@ -6,6 +6,8 @@ import PersonalInformation from './personalInformationForm';
 
 class Admisison extends Component {
     render (){
+        const query = new URLSearchParams(this.props.location.search);
+        const userDataId = query.get('id')
         return (
             <>
                 <section className="flat-slider style1 clearfix">
@@ -51,7 +53,7 @@ class Admisison extends Component {
                                             <span>Información personal</span>
                                         </h2><br/>
                                         <div className="col-md-12">
-                                            <PersonalInformation/>
+                                            <PersonalInformation userDataId={userDataId}/>
                                         </div>
                                     </div>
                                 </div>

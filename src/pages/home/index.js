@@ -4,11 +4,8 @@ import Header from '../core/header';
 import Footer from '../core/footer';
 import axios from 'axios';
 import schema from './schema';
-const url_dev = 'http://172.21.20.214:3000/api/userData';
-const SweetAlert = require('react-bootstrap-sweetalert');
-
-
-
+import swal from 'sweetalert';
+const url_dev = 'http://192.168.1.144:3000/api/userData';
 
 class Home extends Component {
     constructor(props) {
@@ -35,7 +32,6 @@ class Home extends Component {
                     block: 'start',
                 })
             }
-
             
             setTimeout(() => {
                 if(values && values.email){
@@ -43,13 +39,21 @@ class Home extends Component {
                 }
             }, 1000);
 
-            console.log('values :', values);
-
             if(type) {
                 axios.post(`${url_dev}`, { ...values })
                 .then(res => {
+                    console.log('res :', res);
+                    swal({
+                        text: "Formulario enviado correctamente",
+                        icon: "success",
+                        button: "Ok",
+                      });
                     console.log(res);
                     console.log(res.data);
+                })
+                .catch((e) => {
+                    console.log('e :', e);
+                    swal("Oppss!", "Error en el servidor!", "error");
                 })
             }
         }

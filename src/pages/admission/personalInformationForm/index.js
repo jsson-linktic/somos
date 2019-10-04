@@ -1,19 +1,27 @@
 import React, {Component} from 'react';
 import { Formik, Form } from 'formik';
 import axios from 'axios';
-//import DatePicker from "react-datepicker/es/";
+import swal from 'sweetalert';
 import "react-datepicker/dist/react-datepicker.css";
 import schema from './schema';
 import { FormikReactSelect } from '../../../components/FormikFields';
-const url_dev = 'http://172.21.20.214:3000/api/personalInfo';
+
+
+const url_dev = 'http://192.168.1.144:3000/api/';
 
 class PersonalInformation extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          email: ''
+          email: '',
+          user: {}
         }
         this.handleChange = this.handleChange.bind(this);
+    }
+
+    componentDidMount(){
+        this.confirmUser();
+        this.getUserById();
     }
 
     handleChange(event){
@@ -22,8 +30,35 @@ class PersonalInformation extends Component {
         });
     }
 
-    render() {
+    confirmUser(){
+        if(this.props.userDataId){
+            axios.post(`${url_dev}scriptFunction/activateUser `, {
+                id: Number(this.props.userDataId)
+            })
+            .then(response => {
+                console.log(response);
+                //swal(response.data.message);
+            })
+        }
+    }
 
+    getUserById(){
+        if(this.props.userDataId){
+            axios.get(`${url_dev}userData?filter[where][id]=${this.props.userDataId}`)
+            .then(response => {
+                console.log('response :', response.data[0]);
+                this.setState({
+                    user: response.data[0]
+                });
+            }).catch(e => {
+                console.log('e :', e);
+            });
+        }
+    }
+
+    render() {
+        console.log('this.props.userDataId :', this.props.userDataId);
+        
         const gennders = [
             { value: 'Hombre', label: 'Hombre' },
             { value: 'Mujer', label: 'Mujer' }
@@ -71,19 +106,30 @@ class PersonalInformation extends Component {
                 profession: values.profession.value,
                 sex: values.sex.value,
                 typeDocument: values.typeDocument.value,
+                userDataId: this.props.userDataId
             }
             console.log(values)
             console.log(JSON.stringify(data));
+            delete data.id;
 
-            axios.post(`${url_dev}`, { ...data })
+            axios.post(`${url_dev}personalInfo`, { ...data })
                 .then(res => {
                     console.log(res);
                     console.log(res.data);
+                    swal({
+                        text: "Formulario enviado correctamente",
+                        icon: "success",
+                        button: "Ok",
+                      });
+                })
+                .catch(e => {
+                    console.log('e :', e);
+                    swal("Oppss!", "Error en el servidor!", "error");
                 })
         }
 
         const initialValues = {
-            firstName: '',
+            firstName: this.state.user.name,
             secondName: '',
             lastName: '',
             secondLastName: '',
@@ -96,8 +142,10 @@ class PersonalInformation extends Component {
             typeDocument: '',
             documentNumber: '',
             expeditionDate: '',
-            profession: ''
+            profession: '',
+            ...this.state.user
         }
+        console.log('initialValues :', initialValues);
 
         return (
             <Formik
@@ -131,6 +179,7 @@ class PersonalInformation extends Component {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.firstName}
+                                        disabled={true}
                                         aria-describedby="emailHelp" placeholder="Primer nombre"/>
                                     {errors.firstName && touched.firstName && (
                                         <small id="emailHelp" className="form-text text-muted errorInput">{errors.firstName}</small>
@@ -183,7 +232,7 @@ class PersonalInformation extends Component {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.secondLastName}
-                                        aria-describedby="emailHelp" placeholder="Primer nombre"/>
+                                        aria-describedby="emailHelp" placeholder="Segundo apellido"/>
                                     {errors.secondLastName && touched.secondLastName && (
                                         <small id="emailHelp" className="form-text text-muted errorInput">{errors.secondLastName}</small>
                                     )}
@@ -315,7 +364,7 @@ class PersonalInformation extends Component {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.documentNumber}
-                                        aria-describedby="emailHelp" placeholder="Primer nombre"/>
+                                        aria-describedby="emailHelp" placeholder="Numero de documento de identidad"/>
                                     {errors.documentNumber && touched.documentNumber && (
                                         <small id="emailHelp" className="form-text text-muted errorInput">{errors.documentNumber}</small>
                                     )}
