@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 import schema from './schema'
 import { FormikReactSelect } from '../../../components/FormikFields';
+import axios from 'axios';
+import swal from 'sweetalert';
+const url_dev = 'http://192.168.1.144:3000/api/';
+
 
 class HomeInfo extends Component {
     render() {
@@ -21,8 +25,6 @@ class HomeInfo extends Component {
         ]
 
         const handleClick = values => {
-            console.log('values :', values);
-
             const data = {
                 ...values,
                 city: values.city.value,
@@ -33,7 +35,23 @@ class HomeInfo extends Component {
                 countryNotification: values.countryNotification.value,
                 userDataId: this.props.userDataId
             }
-            console.log('data :', data);
+            
+            delete data.id;
+
+            axios.post(`${url_dev}personalInfo`, { ...data })
+                .then(res => {
+                    console.log(res);
+                    console.log(res.data);
+                    swal({
+                        text: "Formulario enviado correctamente",
+                        icon: "success",
+                        button: "Ok",
+                      });
+                })
+                .catch(e => {
+                    console.log('e :', e);
+                    swal("Oppss!", "Error en el servidor!", "error");
+                })
         }
         
         return (
@@ -93,115 +111,115 @@ class HomeInfo extends Component {
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label className="cw">Pais de nacimiento</label>
+                                    <label className="cw">Pais de domicilio</label>
                                     <FormikReactSelect
-                                        name="country"
-                                        id="country"
-                                        value={values.country}
+                                        name="addressCountry"
+                                        id="addressCountry"
+                                        value={values.addressCountry}
                                         isMulti={false}
                                         options={countries}
                                         onChange={setFieldValue}
                                         onBlur={setFieldTouched}
                                     />
-                                    {errors.country && touched.country && (
-                                        <label className="cy">{errors.country}</label>
+                                    {errors.addressCountry && touched.addressCountry && (
+                                        <label className="cy">{errors.addressCountry}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label className="cw">Departamento de nacimiento</label>
+                                    <label className="cw">Departamento de domicilio</label>
                                     <FormikReactSelect
-                                        name="department"
-                                        id="department"
-                                        value={values.department}
+                                        name="addressDepartment"
+                                        id="addressDepartment"
+                                        value={values.addressDepartment}
                                         isMulti={false}
                                         options={departaments}
                                         onChange={setFieldValue}
                                         onBlur={setFieldTouched}
                                     />
-                                    {errors.department && touched.department && (
-                                        <label className="cy">{errors.department}</label>
+                                    {errors.addressDepartment && touched.addressDepartment && (
+                                        <label className="cy">{errors.addressDepartment}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label className="cw">Ciudad de nacimiento</label>
+                                    <label className="cw">Ciudad de domicilio</label>
                                     <FormikReactSelect
-                                        name="city"
-                                        id="city"
-                                        value={values.city}
+                                        name="addressCity"
+                                        id="addressCity"
+                                        value={values.addressCity}
                                         isMulti={false}
                                         options={cities}
                                         onChange={setFieldValue}
                                         onBlur={setFieldTouched}
                                     />
-                                    {errors.city && touched.city && (
-                                        <label className="cy">{errors.city}</label>
+                                    {errors.addressCity && touched.addressCity && (
+                                        <label className="cy">{errors.addressCity}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
                                     <label className="cw">Dirección de notificaciones</label>
                                     <input
-                                        id="addressNotification"
+                                        id="notificationAddress"
                                         className="form-control"
                                         autoComplete="off"
                                         type="text"
-                                        name="addressNotification"
+                                        name="notificationAddress"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={values.addressNotification}
+                                        value={values.notificationAddress}
                                         aria-describedby="emailHelp" placeholder="Dirección de notificaciones"/>
-                                    {errors.addressNotification && touched.addressNotification && (
-                                        <label className="cy">{errors.addressNotification}</label>
+                                    {errors.notificationAddress && touched.notificationAddress && (
+                                        <label className="cy">{errors.notificationAddress}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
                                     <label className="cw">Pais de notificaciones</label>
                                     <FormikReactSelect
-                                        name="countryNotification"
-                                        id="countryNotification"
-                                        value={values.countryNotification}
+                                        name="notificationAddressCountry"
+                                        id="notificationAddressCountry"
+                                        value={values.notificationAddressCountry}
                                         isMulti={false}
                                         options={countries}
                                         onChange={setFieldValue}
                                         onBlur={setFieldTouched}
                                     />
-                                    {errors.countryNotification && touched.countryNotification && (
-                                        <label className="cy">{errors.countryNotification}</label>
+                                    {errors.notificationAddressCountry && touched.notificationAddressCountry && (
+                                        <label className="cy">{errors.notificationAddressCountry}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
                                     <label className="cw">Departamento de notificaciones</label>
                                     <FormikReactSelect
-                                        name="departmentNotification"
-                                        id="departmentNotification"
-                                        value={values.departmentNotification}
+                                        name="notificationAddressDepartment"
+                                        id="notificationAddressDepartment"
+                                        value={values.notificationAddressDepartment}
                                         isMulti={false}
                                         options={departaments}
                                         onChange={setFieldValue}
                                         onBlur={setFieldTouched}
                                     />
-                                    {errors.departmentNotification && touched.departmentNotification && (
-                                        <label className="cy">{errors.departmentNotification}</label>
+                                    {errors.notificationAddressDepartment && touched.notificationAddressDepartment && (
+                                        <label className="cy">{errors.notificationAddressDepartment}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
                                     <label className="cw">Ciudad de notificaciones</label>
                                     <FormikReactSelect
-                                        name="cityNotification"
-                                        id="cityNotification"
-                                        value={values.cityNotification}
+                                        name="notificationAddressCity"
+                                        id="notificationAddressCity"
+                                        value={values.notificationAddressCity}
                                         isMulti={false}
                                         options={cities}
                                         onChange={setFieldValue}
                                         onBlur={setFieldTouched}
                                     />
-                                    {errors.cityNotification && touched.cityNotification && (
-                                        <label className="cy">{errors.cityNotification}</label>
+                                    {errors.notificationAddressCity && touched.notificationAddressCity && (
+                                        <label className="cy">{errors.notificationAddressCity}</label>
                                     )}
                                 </div>
 

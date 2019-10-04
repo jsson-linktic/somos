@@ -11,7 +11,7 @@ const schema = Yup.object().shape({
     phone: Yup
         .string()
         .required("Este campo es requerido."),
-    addressNotification: Yup
+    notificationAddress: Yup
         .string()
         .required("Este campo es requerido.")
   });
