@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import PersonalInformation from './personalInformationForm';
 import HomeInfo from './homeInfo';
 import AdditionalInfo from './additionalInfo';
+import DataTreatment from './dataTreatment';
 
 
 class Admisison extends Component {
@@ -83,6 +84,19 @@ class Admisison extends Component {
                                         </h2><br/>
                                         <div className="col-md-12">
                                             <AdditionalInfo userDataId={userDataId}/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="apply-admission pt-5" style={{marginTop: "150px"}}>
+                                <div className="apply-admission-wrap type2 revert bd-type1">
+                                    <div className="apply-admission-inner">
+                                        <h2 className="title text-center">
+                                            <span>información adicional</span>
+                                        </h2><br/>
+                                        <div className="col-md-12">
+                                            <DataTreatment userDataId={userDataId}/>
                                         </div>
                                     </div>
                                 </div>

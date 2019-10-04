@@ -4731,3 +4731,12 @@ input::-webkit-input-placeholder {
 .errorInput{
     color: white;
 }
+label.cw{
+    color: white
+}
+label.cy{
+    color: yellow
+}
+.color-white{
+    color: white;
+}

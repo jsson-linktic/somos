@@ -167,7 +167,7 @@ class PersonalInformation extends Component {
                         <Form onSubmit={handleSubmit} className="apply-now">
                             <div className="row">
                                 <div className="form-group col-md-6">
-                                    <label>Primer nombre</label>
+                                    <label className="cw">Primer nombre</label>
                                     <input
                                         id="firstName"
                                         className="form-control"
@@ -180,12 +180,12 @@ class PersonalInformation extends Component {
                                         disabled={true}
                                         aria-describedby="emailHelp" placeholder="Primer nombre"/>
                                     {errors.firstName && touched.firstName && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.firstName}</small>
+                                        <label className="cy">{errors.firstName}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Segundo nombre</label>
+                                    <label className="cw">Segundo nombre</label>
                                     <input
                                         id="secondName"
                                         className="form-control"
@@ -197,13 +197,13 @@ class PersonalInformation extends Component {
                                         value={values.secondName}
                                         aria-describedby="emailHelp" placeholder="Segundo nombre"/>
                                     {errors.secondName && touched.secondName && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.secondName}</small>
+                                        <label className="cy">{errors.secondName}</label>
                                     )}
                                 </div>
 
 
                                 <div className="form-group col-md-6">
-                                    <label>Primer apellido</label>
+                                    <label className="cw">Primer apellido</label>
                                     <input
                                         id="lastName"
                                         className="form-control"
@@ -215,12 +215,12 @@ class PersonalInformation extends Component {
                                         value={values.lastName}
                                         aria-describedby="emailHelp" placeholder="Primer apellido"/>
                                     {errors.lastName && touched.lastName && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.lastName}</small>
+                                        <label className="cy">{errors.lastName}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Segundo apellido</label>
+                                    <label className="cw">Segundo apellido</label>
                                     <input
                                         id="secondLastName"
                                         className="form-control"
@@ -232,13 +232,13 @@ class PersonalInformation extends Component {
                                         value={values.secondLastName}
                                         aria-describedby="emailHelp" placeholder="Segundo apellido"/>
                                     {errors.secondLastName && touched.secondLastName && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.secondLastName}</small>
+                                        <label className="cy">{errors.secondLastName}</label>
                                     )}
                                 </div>
 
 
                                 <div className="form-group col-md-6">
-                                    <label>Sexo</label>
+                                    <label className="cw">Sexo</label>
                                     <FormikReactSelect
                                         name="sex"
                                         id="sex"
@@ -249,12 +249,12 @@ class PersonalInformation extends Component {
                                         onBlur={setFieldTouched}
                                     />
                                     {errors.sex && touched.sex && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.sex}</small>
+                                        <label className="cy">{errors.sex}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Estado civil</label>
+                                    <label className="cw">Estado civil</label>
                                     <FormikReactSelect
                                         name="civilStatus"
                                         id="civilStatus"
@@ -265,13 +265,13 @@ class PersonalInformation extends Component {
                                         onBlur={setFieldTouched}
                                     />
                                     {errors.civilStatus && touched.civilStatus && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.civilStatus}</small>
+                                        <label className="cy">{errors.civilStatus}</label>
                                     )}
                                 </div>
 
 
                                 <div className="form-group col-md-6">
-                                    <label>Fecha de nacimiento</label>
+                                    <label className="cw">Fecha de nacimiento</label>
                                     <input
                                         id="birthDate"
                                         className="form-control"
@@ -282,12 +282,12 @@ class PersonalInformation extends Component {
                                         value={values.birthDate}
                                         placeholder="Primer nombre"/>
                                     {errors.birthDate && touched.birthDate && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.birthDate}</small>
+                                        <label className="cy">{errors.birthDate}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Pais de nacimiento</label>
+                                    <label className="cw">Pais de nacimiento</label>
                                     <FormikReactSelect
                                         name="country"
                                         id="country"
@@ -298,13 +298,13 @@ class PersonalInformation extends Component {
                                         onBlur={setFieldTouched}
                                     />
                                     {errors.country && touched.country && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.country}</small>
+                                        <label className="cy">{errors.country}</label>
                                     )}
                                 </div>
 
 
                                 <div className="form-group col-md-6">
-                                    <label>Departamento de nacimiento</label>
+                                    <label className="cw">Departamento de nacimiento</label>
                                     <FormikReactSelect
                                         name="department"
                                         id="department"
@@ -315,12 +315,12 @@ class PersonalInformation extends Component {
                                         onBlur={setFieldTouched}
                                     />
                                     {errors.department && touched.department && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.department}</small>
+                                        <label className="cy">{errors.department}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Ciudad de nacimiento</label>
+                                    <label className="cw">Ciudad de nacimiento</label>
                                     <FormikReactSelect
                                         name="city"
                                         id="city"
@@ -331,12 +331,12 @@ class PersonalInformation extends Component {
                                         onBlur={setFieldTouched}
                                     />
                                     {errors.city && touched.city && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.city}</small>
+                                        <label className="cy">{errors.city}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Tipo de documento</label>
+                                    <label className="cw">Tipo de documento</label>
                                     <FormikReactSelect
                                         name="typeDocument"
                                         id="typeDocument"
@@ -347,12 +347,12 @@ class PersonalInformation extends Component {
                                         onBlur={setFieldTouched}
                                     />
                                     {errors.typeDocument && touched.typeDocument && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.typeDocument}</small>
+                                        <label className="cy">{errors.typeDocument}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Numero de documento de identidad</label>
+                                    <label className="cw">Numero de documento de identidad</label>
                                     <input
                                         id="documentNumber"
                                         className="form-control"
@@ -364,12 +364,12 @@ class PersonalInformation extends Component {
                                         value={values.documentNumber}
                                         aria-describedby="emailHelp" placeholder="Numero de documento de identidad"/>
                                     {errors.documentNumber && touched.documentNumber && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.documentNumber}</small>
+                                        <label className="cy">{errors.documentNumber}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Fecha de expedición</label>
+                                    <label className="cw">Fecha de expedición</label>
                                     <input
                                         id="documentExpeditionDate"
                                         className="form-control"
@@ -380,12 +380,12 @@ class PersonalInformation extends Component {
                                         value={values.documentExpeditionDate}
                                         placeholder="Primer nombre"/>
                                     {errors.documentExpeditionDate && touched.documentExpeditionDate && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.documentExpeditionDate}</small>
+                                        <label className="cy">{errors.documentExpeditionDate}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Cargo actual</label>
+                                    <label className="cw">Cargo actual</label>
                                     <FormikReactSelect
                                         name="profession"
                                         id="profession"
@@ -396,7 +396,7 @@ class PersonalInformation extends Component {
                                         onBlur={setFieldTouched}
                                     />
                                     {errors.profession && touched.profession && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.profession}</small>
+                                        <label className="cy">{errors.profession}</label>
                                     )}
                                 </div>
 

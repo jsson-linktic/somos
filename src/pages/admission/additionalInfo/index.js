@@ -36,7 +36,7 @@ class AdditionalInfo extends Component {
                         <Form>
                             <div className="row">
                                 <div className="form-group col-md-6">
-                                    <label>Nivel de estudios</label>
+                                    <label className="cw">Nivel de estudios</label>
                                     <input
                                         id="educationLavel"
                                         className="form-control"
@@ -48,12 +48,12 @@ class AdditionalInfo extends Component {
                                         value={values.educationLavel}
                                         aria-describedby="emailHelp" placeholder="Nivel de estudios"/>
                                     {errors.educationLavel && touched.educationLavel && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.educationLavel}</small>
+                                        <label className="cy">{errors.educationLavel}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Profesión u oficio</label>
+                                    <label className="cw">Profesión u oficio</label>
                                     <input
                                         id="profession"
                                         className="form-control"
@@ -65,13 +65,13 @@ class AdditionalInfo extends Component {
                                         value={values.profession}
                                         aria-describedby="emailHelp" placeholder="profession u oficio"/>
                                     {errors.profession && touched.profession && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.profession}</small>
+                                        <label className="cy">{errors.profession}</label>
                                     )}
                                 </div>
                             </div>
                             <div className="btn-50 hv-border text-center">
                                 <button
-                                    //disabled={!isValid}
+                                    disabled={!isValid}
                                     type='button'
                                     className="btn bg-clff5f60"
                                     onClick={() => handleClick(values, 1)}>

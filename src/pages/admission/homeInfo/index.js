@@ -59,7 +59,7 @@ class HomeInfo extends Component {
                         <Form>
                             <div className="row">
                                 <div className="form-group col-md-6">
-                                    <label>Dirección de correo electrónico</label>
+                                    <label className="cw">Dirección de correo electrónico</label>
                                     <input
                                         id="email"
                                         className="form-control"
@@ -71,12 +71,12 @@ class HomeInfo extends Component {
                                         value={values.email}
                                         aria-describedby="emailHelp" placeholder="Dirección de correo electrónico"/>
                                     {errors.email && touched.email && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.email}</small>
+                                        <label className="cy">{errors.email}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Dirección de domicilio</label>
+                                    <label className="cw">Dirección de domicilio</label>
                                     <input
                                         id="address"
                                         className="form-control"
@@ -88,12 +88,12 @@ class HomeInfo extends Component {
                                         value={values.address}
                                         aria-describedby="emailHelp" placeholder="Dirección de domicilio"/>
                                     {errors.address && touched.address && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.address}</small>
+                                        <label className="cy">{errors.address}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Pais de nacimiento</label>
+                                    <label className="cw">Pais de nacimiento</label>
                                     <FormikReactSelect
                                         name="country"
                                         id="country"
@@ -104,12 +104,12 @@ class HomeInfo extends Component {
                                         onBlur={setFieldTouched}
                                     />
                                     {errors.country && touched.country && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.country}</small>
+                                        <label className="cy">{errors.country}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Departamento de nacimiento</label>
+                                    <label className="cw">Departamento de nacimiento</label>
                                     <FormikReactSelect
                                         name="department"
                                         id="department"
@@ -120,12 +120,12 @@ class HomeInfo extends Component {
                                         onBlur={setFieldTouched}
                                     />
                                     {errors.department && touched.department && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.department}</small>
+                                        <label className="cy">{errors.department}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Ciudad de nacimiento</label>
+                                    <label className="cw">Ciudad de nacimiento</label>
                                     <FormikReactSelect
                                         name="city"
                                         id="city"
@@ -136,12 +136,12 @@ class HomeInfo extends Component {
                                         onBlur={setFieldTouched}
                                     />
                                     {errors.city && touched.city && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.city}</small>
+                                        <label className="cy">{errors.city}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Dirección de notificaciones</label>
+                                    <label className="cw">Dirección de notificaciones</label>
                                     <input
                                         id="addressNotification"
                                         className="form-control"
@@ -153,12 +153,12 @@ class HomeInfo extends Component {
                                         value={values.addressNotification}
                                         aria-describedby="emailHelp" placeholder="Dirección de notificaciones"/>
                                     {errors.addressNotification && touched.addressNotification && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.addressNotification}</small>
+                                        <label className="cy">{errors.addressNotification}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Pais de notificaciones</label>
+                                    <label className="cw">Pais de notificaciones</label>
                                     <FormikReactSelect
                                         name="countryNotification"
                                         id="countryNotification"
@@ -169,12 +169,12 @@ class HomeInfo extends Component {
                                         onBlur={setFieldTouched}
                                     />
                                     {errors.countryNotification && touched.countryNotification && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.countryNotification}</small>
+                                        <label className="cy">{errors.countryNotification}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Departamento de notificaciones</label>
+                                    <label className="cw">Departamento de notificaciones</label>
                                     <FormikReactSelect
                                         name="departmentNotification"
                                         id="departmentNotification"
@@ -185,12 +185,12 @@ class HomeInfo extends Component {
                                         onBlur={setFieldTouched}
                                     />
                                     {errors.departmentNotification && touched.departmentNotification && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.departmentNotification}</small>
+                                        <label className="cy">{errors.departmentNotification}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Ciudad de notificaciones</label>
+                                    <label className="cw">Ciudad de notificaciones</label>
                                     <FormikReactSelect
                                         name="cityNotification"
                                         id="cityNotification"
@@ -201,12 +201,12 @@ class HomeInfo extends Component {
                                         onBlur={setFieldTouched}
                                     />
                                     {errors.cityNotification && touched.cityNotification && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.cityNotification}</small>
+                                        <label className="cy">{errors.cityNotification}</label>
                                     )}
                                 </div>
 
                                 <div className="form-group col-md-6">
-                                    <label>Teléfono de contacto</label>
+                                    <label className="cw">Teléfono de contacto</label>
                                     <input
                                         id="phone"
                                         className="form-control"
@@ -218,7 +218,7 @@ class HomeInfo extends Component {
                                         value={values.phone}
                                         aria-describedby="emailHelp" placeholder="Teléfono de contacto"/>
                                     {errors.phone && touched.phone && (
-                                        <small id="emailHelp" className="form-text text-muted errorInput">{errors.phone}</small>
+                                        <label className="cy">{errors.phone}</label>
                                     )}
                                 </div>
                             </div>
