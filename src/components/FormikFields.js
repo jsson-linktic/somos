@@ -27,6 +27,7 @@ export class FormikReactSelect extends React.Component {
           onBlur={this.handleBlur}
           value={this.props.value}
           isDisabled={this.props.isDisabled}
+          placeholder="Seleccionar alguna opción"
         />
       );
     }

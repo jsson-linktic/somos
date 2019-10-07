@@ -32,22 +32,31 @@ class HomeInfo extends Component {
             { value: 'Bogotá', label: 'Bogotá' }
         ]
 
+        const eventPrev = () => {
+            this.props.dataStep({}, "HomeInfo", "prev");
+        }
+
         const handleClick = values => {
             console.log('values :', values);
             const data = {
                 ...values,
-                city: values.city.value,
-                cityNotification: values.cityNotification.value,
-                country: values.country.value,
-                department: values.department.value,
-                departmentNotification: values.departmentNotification.value,
-                countryNotification: values.countryNotification.value,
+                city: (values.city) ? values.city.value : "",
+                cityNotification: (values.cityNotification) ? values.cityNotification.value : "",
+                country: (values.country) ? values.country.value : "",
+                department: (values.department) ? values.department.value : "",
+                departmentNotification: (values.departmentNotification) ? values.departmentNotification.value : "",
+                countryNotification: (values.countryNotification) ? values.countryNotification.value : "",
+                notificationAddressCity: (values.notificationAddressCity) ? values.notificationAddressCity.value : "",
+                notificationAddressCountry: (values.notificationAddressCountry) ? values.notificationAddressCountry.value : "",
+                notificationAddressDepartment: (values.notificationAddressDepartment) ? values.notificationAddressDepartment.value : "",
+                addressCountry: (values.addressCountry) ? values.addressCountry.value : "",
+                addressCity: (values.addressCity) ? values.addressCity.value : "",
                 userDataId: this.props.userDataId
             }
             
             delete data.id;
 
-            this.props.dataStep(data, "HomeInfo")
+            this.props.dataStep(data, "HomeInfo", "next");
 
             /*axios.post(`${url_dev}personalInfo`, { ...data })
                 .then(res => {
@@ -251,14 +260,26 @@ class HomeInfo extends Component {
                                     )}
                                 </div>
                             </div>
-                            <div className="btn-50 hv-border text-right">
-                                <button
-                                    //disabled={!isValid}
-                                    type='button'
-                                    className="btn bg-clff5f60"
-                                    onClick={() => handleClick(values, 1)}>
-                                    Guardar
-                                </button>
+                            <div className="row btn-50 hv-border">
+                                <div className="col-md-6 text-left">
+                                    <button
+                                        //disabled={!isValid}
+                                        type='button'
+                                        className="btn bg-clff5f60"
+                                        onClick={eventPrev}>
+                                        Volver
+                                    </button>
+                                </div>
+
+                                <div className="col-md-6 text-right">
+                                    <button
+                                        //disabled={!isValid}
+                                        type='button'
+                                        className="btn bg-clff5f60"
+                                        onClick={() => handleClick(values, 1)}>
+                                        Siguiente
+                                    </button>
+                                </div>
                             </div>
                         </Form>
                     )}

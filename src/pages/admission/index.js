@@ -1,146 +1,227 @@
 import React, {Component} from 'react';
 
 //Components
-import PersonalInformation from './personalInformationForm';
+import PersonalInformation from './personalInformationForm/index';
 import HomeInfo from './homeInfo';
 import AdditionalInfo from './additionalInfo';
 import DataTreatment from './dataTreatment';
+import Header from '../core/header';
+import AcademicInformation from './academicInformation/academicInformation';
 
 
 class Admisison extends Component {
     state = {
         step: 1,
+        subStep: 1,
         personalInformation: {},
         HomeInfo: {}
     }
     render (){
         const query = new URLSearchParams(this.props.location.search);
-        const userDataId = query.get('id')
-
+        const userDataId = query.get('id');
         const step = this.state.step;
-        const dataStep = (data, status) => {
+        const subStep = this.state.subStep;
+
+        const statusStep = (type, step, number) => {
+            if(type == "next" && step === "subStep") {
+                this.setState({
+                    subStep: this.state.subStep+1
+                });
+            }else if(type == "prev" && step === "subStep"){
+                this.setState({
+                    subStep: this.state.subStep-1
+                });
+            }
+
+            if(type == "next" && step === "step") {
+                this.setState({
+                    step: this.state.step+1,
+                    subStep: 1
+                });
+            }else if(type == "prev" && step === "step") {
+                this.setState({
+                    step: this.state.step-1,
+                    subStep: 1
+                });
+            }
+        }
+
+        const dataStep = (data, status, type) => {
+            
             switch (status) {
                 case "PersonalInformation":
                     this.setState({
-                        personalInformation: data,
-                        step: 2
+                        personalInformation: {
+                            ...this.state.personalInformation,
+                            ...data
+                        }
                     })
-                    console.log('data 222:', data);
+                    statusStep(type, "subStep");
                 break;
 
                 case "HomeInfo":
                     this.setState({
-                        personalInformation: data,
-                        step: 3
+                        personalInformation: {
+                            ...this.state.personalInformation,
+                            ...data
+                        }
                     })
-                    console.log('data 333:', data);
+                    statusStep(type, "subStep");
                 break;
 
                 case "AdditionalInfo":
-                        this.setState({
-                            personalInformation: data,
-                            step: 4
-                        })
-                        console.log('data 333:', data);
+                    this.setState({
+                        personalInformation: {
+                            ...this.state.personalInformation,
+                            ...data
+                        }
+                    })
+                    statusStep(type, "subStep");
+                break;
 
+                case "DataTreatment": 
+                    this.setState({
+                        personalInformation: {
+                            ...this.state.personalInformation,
+                            ...data
+                        }
+                    })
+                    statusStep(type, "step");
+                break;
+
+                case "AcademicInformation": 
+                    this.setState({
+                        personalInformation: {
+                            ...this.state.personalInformation,
+                            ...data
+                        }
+                    })
+                    this.setState({
+                        step: 6,
+                        subStep: 1
+                    });
+                    //statusStep(type, "step");
                 break;
 
             }
         }
+
+        const setStep = step => {
+            this.setState({
+                step: step,
+                subStep: 1
+            });
+        }
+        console.log('step :', step);
+        console.log('subStep :', subStep);
         return (
             <>
-                <section className="flat-slider style1 clearfix">
-                    <div className="rev_slider_wrapper fullwidthbanner-container" >
-                        <div id="rev-slider1" className="rev_slider fullwidthabanner">
-                            <ul>
-                                <li data-transition="random">
-                                    <img src={require('../../assets/images/header/01.png')} alt="" data-bgposition="center center" data-no-retina/>
-                                </li>
+                <Header type={2}></Header>
+                
 
-                                <li data-transition="random">
+                <div className="row col-md-12 pt-5">
+                    <div className="col-md-4">
+                        <div className="col-lg-12 col-md-12 col-sm-12">
+                            <div className="">
+                                <div className="apply-admission" >
+                                    <div className="apply-admission-wrap type2 revert bd-type1">
+                                        <div className="apply-admission-inner">
+                                            <h3 className="title text-center">
+                                                <span>Inscripción vitual</span>
+                                            </h3><br/>
 
-                                    <div className="tp-caption sl-address"
-                                    data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
-                                    data-y="['middle','middle','middle','middle']" data-voffset="['325','280','250','200']"
-                                    data-width="full"
-                                    data-height="none"
-                                    data-whitespace="normal"
-                                    data-transform_idle="o:1;"
-                                    data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                                    data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                                    data-mask_in="x:0px;y:[100%];" 
-                                    data-mask_out="x:inherit;y:inherit;" 
-                                    data-start="1000" 
-                                    data-splitin="none" 
-                                    data-splitout="none" 
-                                    data-responsive_offset="on" 
-                                    data-paddingtop= "['50','50','50','50']"
-                                    data-paddingbottom= "['50','50','50','50']"> <a href="/#" className="text-white sl-phone"><i className="fa fa-phone" aria-hidden="true"></i> +91 254 785 587</a><a href="/#" className="text-white sl-email"><i className="fa fa-envelope" aria-hidden="true"></i> educate@info.com</a></div>
-                                </li>
-                            </ul>
+                                            <div className="list-group">
+                                                <a onClick={() => setStep(1)} className={"list-group-item list-group-item-action  " + (step == 1 ? "active color-white": "item-list-personal")}>Información personal</a>
+                                                <a onClick={() => setStep(2)} className={"list-group-item list-group-item-action  " + (step == 2 ? "active color-white": "item-list-personal")}>Información académica</a>
+                                                {/*
+                                                    <a onClick={() => setStep(3)} className={"list-group-item list-group-item-action  " + (step == 3 ? "active color-white": "item-list-personal")}>Población vulnerable</a>
+                                                <a onClick={() => setStep(4)} className={"list-group-item list-group-item-action  " + (step == 4 ? "active color-white": "item-list-personal")}>Información salud</a>
+                                                <a onClick={() => setStep(5)} className={"list-group-item list-group-item-action  " + (step == 5 ? "active color-white": "item-list-personal")}>Información laboral</a>
+                                                
+                                                */}
+                                                <a onClick={() => setStep(6)} className={"list-group-item list-group-item-action  " + (step == 6 ? "active color-white": "item-list-personal")}>Información familiar</a>
+                                                <a onClick={() => setStep(7)} className={"list-group-item list-group-item-action  " + (step == 7 ? "active color-white": "item-list-personal")}>Información financiera</a>
+                                                <a onClick={() => setStep(8)} className={"list-group-item list-group-item-action  " + (step == 8 ? "active color-white": "item-list-personal")}>Información sarlaft</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </div>
                         </div>
-                    </div> 
-                </section>
+                    </div>
 
-                <div className="container">
-                    <div className="col-lg-12 col-md-12 col-sm-12">
-                        <div className="iconbox-style1">
-                            <div className="apply-admission" >
-                                <div className="apply-admission-wrap type2 revert bd-type1">
-                                    {
-                                        step == 1 && (
-                                            <div className="apply-admission-inner">
-                                                <h2 className="title text-center">
-                                                    <span>Información personal</span>
-                                                </h2><br/>
-                                                <div className="col-md-12">
-                                                    <PersonalInformation userDataId={userDataId} dataStep={ (data, status) => dataStep(data, status)}/>
+                    <div className="col-md-8">
+                        <div className="col-lg-12 col-md-12 col-sm-12">
+                            <div className="">
+                                <div className="apply-admission" >
+                                    <div className="apply-admission-wrap type2 revert bd-type1">
+                                        {
+                                            step == 1 && subStep == 1 && (
+                                                <div className="apply-admission-inner">
+                                                    <h2 className="title text-center">
+                                                        <span>Información personal</span>
+                                                    </h2><br/>
+                                                    <div className="col-md-12">
+                                                        <PersonalInformation data={this.state.personalInformation} userDataId={userDataId} dataStep={ (data, status, type) => dataStep(data, status, type)}/>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        )
-                                    }
+                                            )
+                                        }
 
-                                    {
-                                        step == 2 && (
-                                            <div className="apply-admission-inner">
-                                                <h2 className="title text-center">
-                                                    <span>Domicilio</span>
-                                                </h2><br/>
-                                                <div className="col-md-12">
-                                                    <HomeInfo userDataId={userDataId} dataStep={ (data, status) => dataStep(data, status)}/>
+                                        {
+                                            step == 1 && subStep == 2 && (
+                                                <div className="apply-admission-inner">
+                                                    <h2 className="title text-center">
+                                                        <span>Domicilio</span>
+                                                    </h2><br/>
+                                                    <div className="col-md-12">
+                                                        <HomeInfo data={this.state.personalInformation} userDataId={userDataId} dataStep={ (data, status, type) => dataStep(data, status, type)}/>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        )
-                                    }
+                                            )
+                                        }
 
-                                    {
-                                        step == 3 && (
-                                            <div className="apply-admission-inner">
-                                                <h2 className="title text-center">
-                                                    <span>información adicional</span>
-                                                </h2><br/>
-                                                <div className="col-md-12">
-                                                    <AdditionalInfo userDataId={userDataId} dataStep={ (data, status) => dataStep(data, status)}/>
+                                        {
+                                            step == 1 && subStep == 3 && (
+                                                <div className="apply-admission-inner">
+                                                    <h2 className="title text-center">
+                                                        <span>información adicional</span>
+                                                    </h2><br/>
+                                                    <div className="col-md-12">
+                                                        <AdditionalInfo data={this.state.personalInformation} userDataId={userDataId} dataStep={ (data, status, type) => dataStep(data, status, type)}/>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        )
-                                    }
+                                            )
+                                        }
 
-                                    {
-                                        step == 4 && (
-                                            <div className="apply-admission-inner">
-                                                <h2 className="title text-center">
-                                                    <span>información adicional</span>
-                                                </h2><br/>
-                                                <div className="col-md-12">
-                                                    <DataTreatment userDataId={userDataId} dataStep={ (data, status) => dataStep(data, status)}/>
+                                        {
+                                            step == 1 && subStep == 4 && (
+                                                <div className="apply-admission-inner">
+                                                    <h2 className="title text-center">
+                                                        <span>información adicional</span>
+                                                    </h2><br/>
+                                                    <div className="col-md-12">
+                                                        <DataTreatment data={this.state.personalInformation} userDataId={userDataId} dataStep={ (data, status, type) => dataStep(data, status, type)}/>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        )
-                                    }
-                                    
-                                </div>
-                            </div>                            
+                                            )
+                                        }
+
+                                        {
+                                            step == 2 && subStep == 1 && (
+                                                <div className="apply-admission-inner">
+                                                    <h2 className="title text-center">
+                                                        <span>Información Académica</span>
+                                                    </h2><br/>
+                                                    <div className="col-md-12">
+                                                        <AcademicInformation data={this.state.personalInformation} userDataId={userDataId} dataStep={ (data, status, type) => dataStep(data, status, type)}/>
+                                                    </div>
+                                                </div>
+                                            )
+                                        }
+                                    </div>
+                                </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -13,8 +13,11 @@ class AdditionalInfo extends Component {
                 ...values
             }
 
-            this.props.dataStep(data, "AdditionalInfo")
+            this.props.dataStep(data, "AdditionalInfo", "next")
             console.log('values :', values);
+        }
+        const eventPrev = () => {
+            this.props.dataStep({}, "HomeInfo", "prev");
         }
 
 
@@ -75,14 +78,26 @@ class AdditionalInfo extends Component {
                                     )}
                                 </div>
                             </div>
-                            <div className="btn-50 hv-border text-right">
-                                <button
-                                    //disabled={!isValid}
-                                    type='button'
-                                    className="btn bg-clff5f60"
-                                    onClick={() => handleClick(values, 1)}>
-                                    Guardar
-                                </button>
+                            <div className="row btn-50 hv-border">
+                                <div className="col-md-6 text-left">
+                                    <button
+                                        //disabled={!isValid}
+                                        type='button'
+                                        className="btn bg-clff5f60"
+                                        onClick={eventPrev}>
+                                        Volver
+                                    </button>
+                                </div>
+
+                                <div className="col-md-6 text-right">
+                                    <button
+                                        //disabled={!isValid}
+                                        type='button'
+                                        className="btn bg-clff5f60"
+                                        onClick={() => handleClick(values, 1)}>
+                                        Siguiente
+                                    </button>
+                                </div>
                             </div>
                         </Form>
                     )}

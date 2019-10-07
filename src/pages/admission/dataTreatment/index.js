@@ -9,7 +9,11 @@ class DataTreatment extends Component {
         const initialValues = {};
 
         const handleClick = values => {
-            console.log('values :', values);
+            this.props.dataStep(values, "DataTreatment", "next");
+        }
+
+        const eventPrev = () => {
+            this.props.dataStep({}, "HomeInfo", "prev");
         }
 
         return (
@@ -76,14 +80,26 @@ class DataTreatment extends Component {
                                 </div>
                             </div><br/>
 
-                            <div className="btn-50 hv-border text-right">
-                                <button
-                                    disabled={!isValid}
-                                    type='button'
-                                    className="btn bg-clff5f60"
-                                    onClick={() => handleClick(values, 1)}>
-                                    Guardar
-                                </button>
+                            <div className="row btn-50 hv-border">
+                                <div className="col-md-6 text-left">
+                                    <button
+                                        //disabled={!isValid}
+                                        type='button'
+                                        className="btn bg-clff5f60"
+                                        onClick={eventPrev}>
+                                        Volver
+                                    </button>
+                                </div>
+
+                                <div className="col-md-6 text-right">
+                                    <button
+                                        //disabled={!isValid}
+                                        type='button'
+                                        className="btn bg-clff5f60"
+                                        onClick={() => handleClick(values, 1)}>
+                                        Siguiente
+                                    </button>
+                                </div>
                             </div>
                         </Form>
                     )}

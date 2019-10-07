@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Formik, Form } from 'formik';
 import axios from 'axios';
-import swal from 'sweetalert';
 import "react-datepicker/dist/react-datepicker.css";
 import schema from './schema';
 import { FormikReactSelect } from '../../../components/FormikFields';
@@ -104,7 +103,7 @@ class PersonalInformation extends Component {
             }
             delete data.id;
 
-            this.props.dataStep(data, "PersonalInformation")
+            this.props.dataStep(data, "PersonalInformation", "next")
 
             /*axios.post(`${url_dev}personalInfo`, { ...data })
                 .then(res => {
@@ -122,7 +121,12 @@ class PersonalInformation extends Component {
                 })*/
         }
 
-        const initialValues = {
+        console.log('this.props.data :', this.props.data);
+        const initialValues = (this.props.data && this.props.data.lastName) ? 
+        {
+            ...this.props.data
+        } :
+        {
             firstName: this.state.user.name,
             secondName: '',
             lastName: '',
@@ -380,22 +384,6 @@ class PersonalInformation extends Component {
                                     )}
                                 </div>
 
-                                <div className="form-group col-md-6">
-                                    <label className="cw">Cargo actual</label>
-                                    <FormikReactSelect
-                                        name="profession"
-                                        id="profession"
-                                        value={values.profession}
-                                        isMulti={false}
-                                        options={professions}
-                                        onChange={setFieldValue}
-                                        onBlur={setFieldTouched}
-                                    />
-                                    {errors.profession && touched.profession && (
-                                        <label className="cy">{errors.profession}</label>
-                                    )}
-                                </div>
-
                             </div>
                             
                             <div className="btn-50 hv-border text-right">
@@ -404,7 +392,7 @@ class PersonalInformation extends Component {
                                     type='button'
                                     className="btn bg-clff5f60"
                                     onClick={() => handleClick(values, 1)}>
-                                    Guardar
+                                    Siguiente
                                 </button>
                             </div>
                         </Form>
